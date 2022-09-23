@@ -1,0 +1,60 @@
+﻿@using Entities.Concrete
+@model User
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/BlogLayout.cshtml";
+}
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+	<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<h3 class="tittle">Yazar Kayıt Sayfası</h3>
+				<div class="inner-sec">
+					<div class="login p-5 bg-light mx-auto mw-100">
+						@using (Html.BeginForm("Register","Register",FormMethod.Post)) {
+							<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label for="validationCustom01">Ad Soyad</label>
+									@Html.TextBoxFor(x => x.Name, new {@class = "form-control"})
+									@Html.ValidationMessageFor(x => x.Name, "",new {@class = "text-danger"})
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="validationCustom02">Kullanıcı Adı</label>
+									@Html.TextBoxFor(x => x.Email, new {@class = "form-control"})
+									@Html.ValidationMessageFor(x => x.Email, "",new {@class = "text-danger"})
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="exampleInputPassword1 mb-2">Şifre</label>
+									@Html.TextBoxFor(x => x.Password, new {@class = "form-control"})
+									@Html.ValidationMessageFor(x => x.Password, "",new {@class = "text-danger"})
+								</div>
+								<div class="form-group col-md-6">
+									<label for="exampleInputPassword2 mb-2">Görsel</label>
+									@Html.TextBoxFor(x => x.ImagePath, new {@class = "form-control"})
+									@Html.ValidationMessageFor(x => x.ImagePath, "",new {@class = "text-danger"})
+								</div>
+								
+							</div>
+							<button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+								<p>
+									<a href="#" id="btn">Şartları okudum ve kabul ediyorum</a>
+								</p>
+
+						}								
+					</div>
+			</div>
+		</div>
+		<br />
+		<script>
+			$("#btn").click(function() {
+				swal("Site Kabul Şartları","Lorem ipsum xxx")
+			})
+		</script>
+	</section>
+
